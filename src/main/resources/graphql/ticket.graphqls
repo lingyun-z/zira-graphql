@@ -1,0 +1,25 @@
+type Ticket {
+    id: ID!
+    number: String
+    projectId: String
+    parentId: String
+    title: String
+    type: String
+    status: String
+    estimate: String
+    description: String
+    createdBy: String
+    createdUser: User
+    assignee: String
+    assigneeUser: User
+    createdDate: String
+    updateDate: String
+}
+
+type Query {
+    getTicketById(id: ID!): Ticket
+}
+
+#type Mutation{
+#
+#}

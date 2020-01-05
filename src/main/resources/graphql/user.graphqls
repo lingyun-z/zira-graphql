@@ -1,0 +1,14 @@
+type User {
+    id: String
+    workUserId: String
+    name: String
+    mail: String
+}
+
+extend type Query {
+    getUserById(id: ID!): User
+}
+
+#extend type Mutation {
+#
+#}
