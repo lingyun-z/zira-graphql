@@ -2,8 +2,7 @@ package com.example.ziragraphql.service;
 
 import com.example.ziragraphql.entity.Ticket;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,9 +20,12 @@ public interface TicketService {
 //
 //  List<Ticket> getSubTicket(String id);
 //
-//  Ticket addTicket(Ticket ticket);
-//
-//  Ticket updateTicket(Ticket ticket);
-//
-//  int deleteTicket(String id);
+  @PostMapping
+  Ticket addTicket(@RequestBody Ticket ticket);
+
+  @PutMapping("/{id}")
+  Ticket updateTicket(@PathVariable("id") String id, @RequestBody Ticket ticket);
+
+  @DeleteMapping("/{id}")
+  int deleteTicket(@PathVariable("id") String id);
 }

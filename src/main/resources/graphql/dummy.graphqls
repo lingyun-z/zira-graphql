@@ -1,0 +1,11 @@
+type Response {
+    status: String
+}
+
+type Query {
+
+}
+
+type Mutation {
+
+}

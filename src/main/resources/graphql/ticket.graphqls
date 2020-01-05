@@ -2,7 +2,9 @@ type Ticket {
     id: ID!
     number: String
     projectId: String
+    project: Project
     parentId: String
+    parentTicket: Ticket
     title: String
     type: String
     status: String
@@ -16,10 +18,26 @@ type Ticket {
     updateDate: String
 }
 
-type Query {
+input TicketInput {
+    id: ID
+    projectId: String
+    parentId: String
+    title: String
+    type: String
+    status: String
+    estimate: String
+    description: String
+    createdBy: String
+    assignee: String
+}
+
+
+extend type Query {
     getTicketById(id: ID!): Ticket
 }
 
-#type Mutation{
-#
-#}
+extend type Mutation{
+    addTicket(ticket: TicketInput!): Ticket
+    updateTicket(ticket: TicketInput!): Ticket
+    deleteTicketById(id: ID!): Response
+}

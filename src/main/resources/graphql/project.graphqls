@@ -1,0 +1,21 @@
+type Project {
+    id: ID!
+    name: String
+    description: String
+}
+
+input ProjectInput {
+    id: ID
+    name: String
+    description: String
+}
+
+extend type Query {
+    getProjectById(id: ID!): Project
+}
+
+extend type Mutation{
+    addProject(project: ProjectInput!): Project
+    updateProject(project: ProjectInput!): Project
+    deleteProjectById(id: ID!): Response
+}
