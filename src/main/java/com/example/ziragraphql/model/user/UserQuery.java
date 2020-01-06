@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UserQuery implements GraphQLQueryResolver {
-
   @Autowired
   private UserService userService;
 

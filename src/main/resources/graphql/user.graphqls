@@ -5,10 +5,19 @@ type User {
     mail: String
 }
 
+input UserInput {
+    id: ID
+    workUserId: String
+    name: String
+    mail: String
+}
+
 extend type Query {
     getUserById(id: ID!): User
 }
 
-#extend type Mutation {
-#
-#}
+extend type Mutation {
+    addUser(user: UserInput): User
+    updateUser(user: UserInput): User
+    deleteUserById(id: ID!): Response
+}
