@@ -1,27 +1,19 @@
 package com.example.ziragraphql.entity;
 
-public class User {
-  private String id;
+public class User extends BaseEntity {
   private String workUserId;
   private String name;
   private String mail;
 
   public User() {
+    super();
   }
 
   public User(String id, String workUserId, String name, String mail) {
-    this.id = id;
+    super(id);
     this.workUserId = workUserId;
     this.name = name;
     this.mail = mail;
-  }
-
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
   }
 
   public String getWorkUserId() {

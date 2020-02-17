@@ -1,25 +1,17 @@
 package com.example.ziragraphql.entity;
 
-public class Project {
-  private String id;
+public class Project extends BaseEntity {
   private String name;
   private String description;
 
   public Project() {
+    super();
   }
 
   public Project(String id, String name, String description) {
-    this.id = id;
+    super(id);
     this.name = name;
     this.description = description;
-  }
-
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
   }
 
   public String getName() {

@@ -4,6 +4,8 @@ import com.example.ziragraphql.entity.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @FeignClient(value = "zira-user", path = "/user")
 public interface UserService {
   @PostMapping
@@ -17,4 +19,7 @@ public interface UserService {
 
   @DeleteMapping("/{id}")
   int deleteUserById(@PathVariable("id") String id);
+
+  @PostMapping("/batch")
+  List<User> getUserByIds(@RequestBody List<String> ids);
 }

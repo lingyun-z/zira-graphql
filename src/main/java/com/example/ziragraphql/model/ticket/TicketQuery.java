@@ -6,6 +6,8 @@ import com.example.ziragraphql.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class TicketQuery implements GraphQLQueryResolver {
 
@@ -14,5 +16,13 @@ public class TicketQuery implements GraphQLQueryResolver {
 
   public Ticket getTicketById(String id) {
     return ticketService.getTicketById(id);
+  }
+
+  public List<Ticket> getPagedTicket(String projectName, int pageSize, int pageNum) {
+    return ticketService.getPagedTickets(projectName, pageSize, pageNum);
+  }
+
+  public Ticket getTicketByNumber(String projectName, String ticketNumber) {
+    return ticketService.getTicketByTicketName(projectName, ticketNumber);
   }
 }

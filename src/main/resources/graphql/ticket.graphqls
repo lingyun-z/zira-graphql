@@ -1,8 +1,7 @@
 type Ticket {
     id: ID!
     number: String
-    projectId: String
-    project: Project
+    projectName: String
     parentId: String
     parentTicket: Ticket
     title: String
@@ -20,7 +19,7 @@ type Ticket {
 
 input TicketInput {
     id: ID
-    projectId: String
+    projectName: String
     parentId: String
     title: String
     type: String
@@ -34,6 +33,8 @@ input TicketInput {
 
 extend type Query {
     getTicketById(id: ID!): Ticket
+    getTicketByNumber(projectName: String, ticketNumber: String): Ticket
+    getPagedTicket(projectName: String, pageSize: Int, pageNum: Int): [Ticket]
 }
 
 extend type Mutation{

@@ -1,7 +1,6 @@
 package com.example.ziragraphql.model.ticket;
 
 import com.coxautodev.graphql.tools.GraphQLResolver;
-import com.example.ziragraphql.entity.Project;
 import com.example.ziragraphql.entity.Ticket;
 import com.example.ziragraphql.entity.User;
 import com.example.ziragraphql.service.ProjectService;
@@ -31,10 +30,6 @@ public class TicketResolver implements GraphQLResolver<Ticket> {
   }
 
   public Ticket getParentTicket(Ticket ticket) {
-    return ticketService.getTicketById(ticket.getParentId());
-  }
-
-  public Project getProject(Ticket ticket) {
-    return projectService.getProjectById(ticket.getProjectId());
+    return ticket.getParentId() == null ? null : ticketService.getTicketById(ticket.getParentId());
   }
 }

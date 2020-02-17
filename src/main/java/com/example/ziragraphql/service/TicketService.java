@@ -12,9 +12,11 @@ public interface TicketService {
   @GetMapping("/{id}")
   Ticket getTicketById(@PathVariable("id") String id);
 
-//  Ticket getTicketByTicketName(String projectId, String ticketNumber);
-//
-//  List<Ticket> getPagedTickets(int pageSize, int pageNum, String projectId);
+  @GetMapping("/{projectName}/{ticketNumber}")
+  Ticket getTicketByTicketName(@PathVariable("projectName") String projectName, @PathVariable("ticketNumber") String ticketNumber);
+
+  @GetMapping("/project/{projectName}")
+  List<Ticket> getPagedTickets(@PathVariable("projectName") String projectName,@RequestParam("pageSize") int pageSize,@RequestParam("pageNum") int pageNum);
 //
 //  int getTicketCount(String projectId);
 //

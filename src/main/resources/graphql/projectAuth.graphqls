@@ -1,0 +1,17 @@
+type Auth {
+    id: ID!
+    projectId: ID!
+    project: Project
+    userId: ID!
+    user: User
+    role: ROLE
+}
+
+enum ROLE {
+    OWNER
+    MEMBER
+}
+
+extend type Query {
+    getAuthByUserId: [Auth]
+}

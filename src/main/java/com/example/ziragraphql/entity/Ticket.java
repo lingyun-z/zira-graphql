@@ -1,9 +1,8 @@
 package com.example.ziragraphql.entity;
 
-public class Ticket {
-  private String id;
+public class Ticket extends BaseEntity {
   private String number;
-  private String projectId;
+  private String projectName;
   private String parentId;
   private String title;
   private String type;
@@ -16,12 +15,13 @@ public class Ticket {
   private String updateDate;
 
   public Ticket() {
+    super();
   }
 
-  public Ticket(String id, String number, String projectId, String parentId, String title, String type, String status, Integer estimate, String description, String createdBy, String assignee, String createdDate, String updateDate) {
-    this.id = id;
+  public Ticket(String id, String number, String projectName, String parentId, String title, String type, String status, Integer estimate, String description, String createdBy, String assignee, String createdDate, String updateDate) {
+    super(id);
     this.number = number;
-    this.projectId = projectId;
+    this.projectName = projectName;
     this.parentId = parentId;
     this.title = title;
     this.type = type;
@@ -39,7 +39,7 @@ public class Ticket {
     return "Ticket{" +
             "id='" + id + '\'' +
             ", number='" + number + '\'' +
-            ", projectId='" + projectId + '\'' +
+            ", projectName='" + projectName + '\'' +
             ", parentId='" + parentId + '\'' +
             ", title='" + title + '\'' +
             ", type='" + type + '\'' +
@@ -53,20 +53,12 @@ public class Ticket {
             '}';
   }
 
-  public String getId() {
-    return id;
+  public String getprojectName() {
+    return projectName;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getProjectId() {
-    return projectId;
-  }
-
-  public void setProjectId(String projectId) {
-    this.projectId = projectId;
+  public void setprojectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public String getParentId() {

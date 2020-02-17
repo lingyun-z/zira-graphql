@@ -5,10 +5,12 @@ import graphql.servlet.GraphQLContextBuilder;
 import org.dataloader.DataLoader;
 import org.dataloader.DataLoaderRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.websocket.server.HandshakeRequest;
 
+@Component
 public class DataLoaderGraphQLContextBuilder implements GraphQLContextBuilder {
 
   @Autowired
@@ -39,6 +41,7 @@ public class DataLoaderGraphQLContextBuilder implements GraphQLContextBuilder {
     DataLoaderRegistry dataLoaderRegistry = new DataLoaderRegistry();
     dataLoaderRegistry.register("userDataLoader", DataLoader.newDataLoader(dataLoaders.getUserBatchLoader()));
     dataLoaderRegistry.register("ticketBatchLoader", DataLoader.newDataLoader(dataLoaders.getTicketBatchLoader()));
+    dataLoaderRegistry.register("projectBatchLoader", DataLoader.newDataLoader(dataLoaders.getProjectBatchLoader()));
     return dataLoaderRegistry;
   }
 }

@@ -1,4 +1,4 @@
-package com.example.ziragraphql.configration;
+package com.example.ziragraphql.config;
 
 import feign.Logger;
 import org.springframework.context.annotation.Bean;
