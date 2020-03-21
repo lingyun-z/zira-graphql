@@ -16,16 +16,16 @@ public class AuthResolver implements GraphQLResolver<Auth> {
 
 
   public CompletableFuture<Project> getProject(Auth auth,  DataFetchingEnvironment env) {
-    DataLoader<String, Project> dataloader = ((GraphQLContext) env.getContext())
+    DataLoader<String, Project> dataLoader = ((GraphQLContext) env.getContext())
             .getDataLoaderRegistry().get()
             .getDataLoader("projectBatchLoader");
-    return dataloader.load(auth.getProjectId());
+    return dataLoader.load(auth.getProjectId());
   }
 
   public CompletableFuture<User> getUser(Auth auth, DataFetchingEnvironment env) {
-    DataLoader<String, User> dataloader = ((GraphQLContext) env.getContext())
+    DataLoader<String, User> dataLoader = ((GraphQLContext) env.getContext())
             .getDataLoaderRegistry().get()
             .getDataLoader("userBatchLoader");
-    return dataloader.load(auth.getUserId());
+    return dataLoader.load(auth.getUserId());
   }
 }

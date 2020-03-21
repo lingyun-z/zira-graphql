@@ -17,6 +17,9 @@ public class SecurityGraphQLAspect {
   public void doSecurityCheck() throws Exception {
     ServletRequestAttributes requestAttributes = (ServletRequestAttributes)RequestContextHolder.getRequestAttributes();
     String token = requestAttributes.getRequest().getHeader("Authorization");
+    System.out.println("***************************");
+    System.out.println(token);
+    System.out.println("***************************");
     UserContext context = UserContextHolder.get();
     context.setUser(new User("1bd358a8-24ac-11ea-b286-0242ac110002", "", "zhanglingyun", "zly@pwc.com"));
 //    throw new Exception("aaaaaaaaaaa");

@@ -1,0 +1,13 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://zira-eureka/eureka/
+server:
+  port: 80
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: zira-graphql
+  profiles:
+    active: dev

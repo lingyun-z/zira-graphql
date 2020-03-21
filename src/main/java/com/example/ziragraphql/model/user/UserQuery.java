@@ -9,6 +9,8 @@ import com.example.ziragraphql.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class UserQuery implements GraphQLQueryResolver {
   @Autowired
@@ -21,6 +23,7 @@ public class UserQuery implements GraphQLQueryResolver {
 
   public User getCurrentUser() {
     UserContext context = UserContextHolder.get();
-    return userService.getUserById(context.getUser().getId());
+    String userId = context.getUser().getId();
+    return userService.getUserById(userId);
   }
 }

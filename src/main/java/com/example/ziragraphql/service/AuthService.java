@@ -11,4 +11,7 @@ import java.util.List;
 public interface AuthService {
   @GetMapping("/{userId}")
   List<Auth> getAuthByUserId(@PathVariable("userId") String userId);
+
+  @GetMapping("/project/{id}")
+  List<Auth> getAuthUserByProjectId(@PathVariable("id") String id);
 }

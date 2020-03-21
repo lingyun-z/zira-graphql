@@ -1,0 +1,13 @@
+version: "2"
+services:
+  zira-eureka:
+    restart: always
+    image: zira-graphql
+    container_name: zira-graphql
+    expose:
+      - "80"
+    networks:
+      - zira
+networks:
+  zira:
+    external: true

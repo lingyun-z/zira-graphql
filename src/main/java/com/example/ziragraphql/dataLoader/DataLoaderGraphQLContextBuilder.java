@@ -39,7 +39,7 @@ public class DataLoaderGraphQLContextBuilder implements GraphQLContextBuilder {
 
   private DataLoaderRegistry buildDataLoaderRegistry() {
     DataLoaderRegistry dataLoaderRegistry = new DataLoaderRegistry();
-    dataLoaderRegistry.register("userDataLoader", DataLoader.newDataLoader(dataLoaders.getUserBatchLoader()));
+    dataLoaderRegistry.register("userBatchLoader", DataLoader.newDataLoader(dataLoaders.getUserBatchLoader()));
     dataLoaderRegistry.register("ticketBatchLoader", DataLoader.newDataLoader(dataLoaders.getTicketBatchLoader()));
     dataLoaderRegistry.register("projectBatchLoader", DataLoader.newDataLoader(dataLoaders.getProjectBatchLoader()));
     return dataLoaderRegistry;

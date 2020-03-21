@@ -15,8 +15,12 @@ public class AuthQuery implements GraphQLQueryResolver {
   @Autowired
   private AuthService authService;
 
-  public List<Auth> getAuthByUserId() throws Exception {
+  public List<Auth> getAuthByUserId() {
     UserContext context = UserContextHolder.get();
     return authService.getAuthByUserId(context.getUser().getId());
+  }
+
+  public List<Auth> getAuthUserByProjectId(String id) {
+    return authService.getAuthUserByProjectId(id);
   }
 }
