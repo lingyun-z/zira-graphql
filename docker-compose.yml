@@ -1,11 +1,11 @@
-version: "2"
+version: '2'
 services:
-  zira-eureka:
+  zira-graphql:
     restart: always
-    image: zira-graphql
     container_name: zira-graphql
+    image: zira-graphql
     expose:
-      - "80"
+      - '80'
     networks:
       - zira
 networks:
