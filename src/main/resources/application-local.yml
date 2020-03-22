@@ -1,7 +1,10 @@
 eureka:
   client:
+    healthcheck:
+      enabled: true
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+    enabled: true
 server:
   port: 8769
 spring:
@@ -14,3 +17,33 @@ spring:
 logging:
   level:
     com.example.ziragraphql.service: debug
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["health","beans","env","prometheus","info","metrics"]
+      base-path: /
+  #      enabled-by-default: true
+  endpoint:
+    auditevents:
+      enabled: true
+      cache:
+        time-to-live: 10s
+    beans:
+      enabled: true
+    conditions:
+      enabled: true
+    configprops:
+      enabled: true
+    prometheus:
+      enabled: true
+  metrics:
+    tags:
+      application:
+        ${spring:application:name}
+    export:
+      prometheus:
+        pushgateway:
+          base-url: 101.132.169.36:9091
+          enabled: true
