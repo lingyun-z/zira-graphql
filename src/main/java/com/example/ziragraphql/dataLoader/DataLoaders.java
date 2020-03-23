@@ -26,7 +26,8 @@ public class DataLoaders {
   private final BatchLoader<String, User> userBatchLoader = (List<String> list) ->
     CompletableFuture.supplyAsync(() -> {
       List<User> users = userService.getUserByIds(list);
-      return resultValidate(list, users);
+//      return resultValidate(list, users);
+      return users;
   });
 
   private final BatchLoader<String, Ticket> ticketBatchLoader = (List<String> list) -> null;
@@ -34,7 +35,8 @@ public class DataLoaders {
   private final BatchLoader<String, Project> projectBatchLoader = (List<String> list) ->
     CompletableFuture.supplyAsync(() -> {
       List<Project> projects = projectService.getProjectByIds(list);
-      return resultValidate(list, projects);
+//      return resultValidate(list, projects);
+      return projects;
     });
 
   public BatchLoader<String, User> getUserBatchLoader() {
@@ -54,9 +56,18 @@ public class DataLoaders {
     Iterator<T> iterator = input.iterator();
     T tmp = iterator.next();
     for (int i = 0; i < list.size(); i++) {
+      tmp = iterator.hasNext() ? iterator.next() : null;
+      System.out.println("***************");
+      System.out.println(list.get(i));
+      System.out.println(tmp.getId());
+      System.out.println(i);
+      System.out.println("***************");
+
       if (tmp != null && list.get(i).equals(tmp.getId())) {
         result.add(tmp);
-        tmp = iterator.hasNext() ? iterator.next() : null;
+        System.out.println("***************");
+        System.out.println(tmp.getId());
+        System.out.println("***************");
       } else {
         result.add(null);
       }
