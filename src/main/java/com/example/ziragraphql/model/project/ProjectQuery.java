@@ -14,4 +14,8 @@ public class ProjectQuery implements GraphQLQueryResolver {
   public Project getProjectById(String id) {
     return projectService.getProjectById(id);
   }
+
+  public Project getProjectByName(String name) {
+    return projectService.getProjectByName(name);
+  }
 }

@@ -12,6 +12,7 @@ input ProjectInput {
 
 extend type Query {
     getProjectById(id: ID!): Project
+    getProjectByName(projectName: String!): Project
 }
 
 extend type Mutation{

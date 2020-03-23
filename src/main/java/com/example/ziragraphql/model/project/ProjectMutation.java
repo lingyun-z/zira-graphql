@@ -1,6 +1,8 @@
 package com.example.ziragraphql.model.project;
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
+import com.example.ziragraphql.context.UserContext;
+import com.example.ziragraphql.context.UserContextHolder;
 import com.example.ziragraphql.entity.Project;
 import com.example.ziragraphql.entity.Response;
 import com.example.ziragraphql.service.ProjectService;
@@ -13,7 +15,9 @@ public class ProjectMutation implements GraphQLMutationResolver {
   private ProjectService projectService;
 
   public Project addProject(Project project) {
-    return projectService.addProject(project);
+    UserContext context = UserContextHolder.get();
+    String userId = context.getUser().getId();
+    return projectService.addProject(project, userId);
   }
 
   public Project updateProject(Project project) {

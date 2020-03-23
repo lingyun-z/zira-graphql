@@ -8,8 +8,8 @@ import java.util.List;
 
 @FeignClient(value = "zira-user", path = "/project")
 public interface ProjectService {
-  @PostMapping
-  Project addProject(@RequestBody Project project);
+  @PostMapping("/{id}")
+  Project addProject(@RequestBody Project project, @PathVariable("id") String userId);
 
   @PutMapping("/{id}")
   Project updateProject(@PathVariable("id") String id, @RequestBody Project project);
@@ -22,4 +22,7 @@ public interface ProjectService {
 
   @PostMapping("/batch")
   List<Project> getProjectByIds(@RequestBody List<String> ids);
+
+  @GetMapping("/name/{name}")
+  Project getProjectByName(@PathVariable("name") String name);
 }

@@ -1,4 +1,6 @@
 eureka:
+  instance:
+    ip-address: http://localhost:${server.port}
   client:
     healthcheck:
       enabled: true
