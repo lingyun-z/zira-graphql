@@ -27,7 +27,6 @@ public class ProjectMutation implements GraphQLMutationResolver {
 
   public Response deleteProjectById(String id){
     int result = projectService.deleteProjectById(id);
-
     return new Response(result == 1 ? "success" : "failed");
   }
 }

@@ -5,6 +5,11 @@ type User {
     mail: String
 }
 
+type UserToken {
+    token: String
+    expiresIn: Long
+}
+
 input UserInput {
     id: ID
     workUserId: String
@@ -16,6 +21,7 @@ extend type Query {
     getUserById(id: ID!): User
     getAllUser: [User]
     getCurrentUser: User
+    getUserToken(user: UserInput): UserToken
 }
 
 extend type Mutation {

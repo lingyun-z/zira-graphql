@@ -16,6 +16,7 @@ public class TicketMutation implements GraphQLMutationResolver {
   public Ticket addTicket(Ticket ticket) {
     String userId = UserContextHolder.get().getUser().getId();
     ticket.setCreatedBy(userId);
+    ticket.setStatus("ready");
     return ticketService.addTicket(ticket);
   }
 

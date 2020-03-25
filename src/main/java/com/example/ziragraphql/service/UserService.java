@@ -25,4 +25,7 @@ public interface UserService {
 
   @GetMapping("/all")
   List<User> getAllUser();
+
+  @PostMapping("/valid")
+  User vaildUser(@RequestBody User user);
 }
