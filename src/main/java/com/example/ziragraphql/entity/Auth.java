@@ -7,6 +7,7 @@ public class Auth extends BaseEntity {
 
   private enum  Role {
     OWNER,
+    ADMIN,
     MEMBER
   }
 

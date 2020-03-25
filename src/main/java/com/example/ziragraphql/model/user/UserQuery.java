@@ -26,4 +26,8 @@ public class UserQuery implements GraphQLQueryResolver {
     String userId = context.getUser().getId();
     return userService.getUserById(userId);
   }
+
+  public List<User> getAllUser() {
+    return userService.getAllUser();
+  }
 }

@@ -7,12 +7,26 @@ type Auth {
     role: ROLE
 }
 
+input AuthInput {
+    id: ID
+    projectId: ID!
+    userId: ID!
+    role: ROLE
+}
+
 enum ROLE {
     OWNER
+    ADMIN
     MEMBER
 }
 
 extend type Query {
     getAuthByUserId: [Auth]
     getAuthUserByProjectId(id: ID!): [Auth]
+}
+
+extend type Mutation {
+    addProjectAuth(auth: AuthInput): Auth
+    updateProjectAuth(auth: AuthInput): Auth
+    deleteProjectAuth(id: ID!): Response
 }

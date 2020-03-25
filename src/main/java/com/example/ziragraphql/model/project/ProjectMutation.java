@@ -21,11 +21,13 @@ public class ProjectMutation implements GraphQLMutationResolver {
   }
 
   public Project updateProject(Project project) {
+    System.out.println();
     return projectService.updateProject(project.getId(), project);
   }
 
   public Response deleteProjectById(String id){
     int result = projectService.deleteProjectById(id);
+
     return new Response(result == 1 ? "success" : "failed");
   }
 }

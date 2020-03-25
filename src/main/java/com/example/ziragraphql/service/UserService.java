@@ -22,4 +22,7 @@ public interface UserService {
 
   @PostMapping("/batch")
   List<User> getUserByIds(@RequestBody List<String> ids);
+
+  @GetMapping("/all")
+  List<User> getAllUser();
 }
