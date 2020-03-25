@@ -52,4 +52,4 @@ management:
 
 essproperties:
   jwt-token-secret: zira-2020
-  user-token-duration: 10800000
+  user-token-duration: 180
