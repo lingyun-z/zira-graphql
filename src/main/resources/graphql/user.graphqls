@@ -15,6 +15,7 @@ input UserInput {
     workUserId: String
     name: String
     mail: String
+    password: String
 }
 
 extend type Query {

@@ -4,16 +4,26 @@ public class User extends BaseEntity {
   private String workUserId;
   private String name;
   private String mail;
+  private String password;
 
   public User() {
     super();
   }
 
-  public User(String id, String workUserId, String name, String mail) {
+  public User(String id, String workUserId, String name, String mail, String password) {
     super(id);
     this.workUserId = workUserId;
     this.name = name;
     this.mail = mail;
+    this.password = password;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
   public String getWorkUserId() {

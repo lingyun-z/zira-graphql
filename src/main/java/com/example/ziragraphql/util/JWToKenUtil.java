@@ -57,10 +57,11 @@ public class JWToKenUtil {
       Claims body = claims.getBody();
 
       result = new User(
-              body.get("id",String.class),
-              null,
-              body.get("name",String.class),
-              body.get("mail",String.class));
+
+      );
+      result.setId(body.get("id",String.class));
+      result.setName(body.get("name",String.class));
+      result.setMail(body.get("mail",String.class));
     } catch (Exception ex) {
       throw new UnauthenticatedAccessException("Unauthenticated");
     }
